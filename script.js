@@ -20,9 +20,6 @@ function addToList(price, id, name) {
 
 function remove(id, price) {
     console.log(id);
-
-    if (set.has(id)) {
-
         set.delete(id);
         total -= price;
 
@@ -34,5 +31,4 @@ function remove(id, price) {
         {
           item.remove();
         }
-    }
 }
