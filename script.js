@@ -1,7 +1,7 @@
 let total = 0;
 let set = new Set();
 
-function addToList(price, id, name) {
+function addToList(price,discount,id,name) {
     if (!set.has(id)) {
         set.add(id);
         total += price;
@@ -11,7 +11,11 @@ function addToList(price, id, name) {
 
         const p = document.createElement("p");
         p.setAttribute('id', `item-${id}`);
-        p.innerHTML = `${name} <button class="btn_remove" onclick="remove('${id}', ${price})">Remove</button>`;
+        if(discount>0)
+        p.innerHTML = `${name}:<span class='list'>You saved ${discount} SEK </span><button class="btn_remove" onclick="remove('${id}', ${price})">Remove</button>`;
+        else
+        p.innerHTML = `${name}:<span class='list'>You saved 0 SEK </span><button class="btn_remove" onclick="remove('${id}', ${price})">Remove</button>`;
+
         element.appendChild(p);
     } else {
         alert("This item is already added in the list...");
